@@ -35,7 +35,7 @@ max_working_days=20
 total_working_days=0
 total_working_hrs=0
 max_working_hrs=100
-
+declare -A dailywage
 
 while [ $total_working_days -lt $max_working_days ] && [ $total_working_hrs -lt $max_working_hrs ]
 do
@@ -61,7 +61,7 @@ function emplyHrs() {
 	total_working_days=$(( $total_working_days + 1 ))
 
 	total_working_hrs=$(( $total_working_hrs + $empHrs ))
-	dailywage[$total_working_days]=$(( $total_working_hrs * $wage_per_hr ))
+	dailywage[ "DAY"$total_working_days ]=$(( $total_working_hrs * $wage_per_hr ))
 done
 
 
@@ -70,4 +70,5 @@ totalsalary=$(( $wage_per_hr * $total_working_hrs ))
 echo $totalsalary
 
 
-echo  "wage increment per day" ${dailywage[@]}
+echo  "wage increment per day :" ${dailywage[@]}
+echo  "DAYS :" ${!dailywage[@]}
