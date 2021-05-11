@@ -7,7 +7,7 @@ emp_present_part_time=2
 
 
 
-empCheck=$(( RANDOM%3 ))
+#empCheck=$(( RANDOM%3 ))
 
 if [ $emp_present_full_time -eq $empCheck ]
 then echo "Employ is present full time"
@@ -37,3 +37,11 @@ case $empCheck in
 
 esac
 echo $empHrs
+
+#assumption 4
+max_working_days=20
+total_working_days=0
+total_working_hrs=0
+
+
+
