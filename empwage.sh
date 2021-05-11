@@ -18,9 +18,10 @@ then echo "Employ is present part time"
 else echo "Employ is absent"
 fi
 
-#assumptions
+#assumptions 1
 
 wage_per_hr=20
 full_day_hr=8
 
-
+#assumptiopn 2
+part_time_hr=4
