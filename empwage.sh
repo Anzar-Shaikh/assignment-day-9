@@ -1,10 +1,10 @@
 
 echo "welcome to employ-wage calculation"
 
+emp_absent=0
+emp_present_full_time=1
+emp_present_part_time=2
 
-emp_present_full_time=0
-emp_present_part_time=1
-emp_absent=2
 
 
 empCheck=$(( RANDOM%3 ))
@@ -25,3 +25,15 @@ full_day_hr=8
 
 #assumptiopn 2
 part_time_hr=4
+
+
+case $empCheck in
+
+	$emp_present_full_time) empHrs=8 ;;
+
+	$emp_present_part_time) empHrs=4 ;;
+
+	$emp_absent) empHrs=0 ;;
+
+esac
+echo $empHrs
