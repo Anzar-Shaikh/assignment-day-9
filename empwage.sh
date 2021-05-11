@@ -59,9 +59,15 @@ function emplyHrs() {
 	empHrs="$( emplyHrs $empCheck )"
 
 	total_working_days=$(( $total_working_days + 1 ))
+
 	total_working_hrs=$(( $total_working_hrs + $empHrs ))
+	dailywage[$total_working_days]=$(( $total_working_hrs * $wage_per_hr ))
 done
 
-salary=$(( $wage_per_hr * $total_working_hrs ))
 
-echo $salary
+totalsalary=$(( $wage_per_hr * $total_working_hrs ))
+
+echo $totalsalary
+
+
+echo  "wage increment per day" ${dailywage[@]}
