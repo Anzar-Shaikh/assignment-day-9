@@ -42,19 +42,24 @@ do
 
 	empCheck=$((RANDOM%3))
 
-case $empCheck in
+function emplyHrs() {
+	local empCheck=$1
 
-	$emp_present_full_time) empHrs=8 ;;
+	case $empCheck in
 
-	$emp_present_part_time) empHrs=4 ;;
+		$emp_present_full_time) empHrs=8 ;;
 
-	$emp_absent) empHrs=0 ;;
+		$emp_present_part_time) empHrs=4 ;;
 
-esac
+		$emp_absent) empHrs=0 ;;
 
+	esac
+	echo $empHrs
+}
+	empHrs="$( emplyHrs $empCheck )"
 
 	total_working_days=$(( $total_working_days + 1 ))
-	total_working_hrs=$(( $total_working_hrs + $empHrs))
+	total_working_hrs=$(( $total_working_hrs + $empHrs ))
 done
 
 salary=$(( $wage_per_hr * $total_working_hrs ))
